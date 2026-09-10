@@ -25,18 +25,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build static export
         env:
           GITHUB_PAGES_EXPORT: "true"
-          # اگر آدرس سفارشی (Custom Domain) برای GitHub Pages تنظیم نکرده‌اید،
-          # و سایت زیر مسیر usename.github.io/REPO_NAME منتشر می‌شود،
-          # مقدار زیر را با نام Repository جایگزین کنید، مثلاً: /mahrukh-clinic-website
-          NEXT_BASE_PATH: ""
+          # سایت روی آدرس پیش‌فرض GitHub Pages منتشر می‌شود:
+          # https://hamidzoghii.github.io/mahrukh-clinic/
+          # به همین دلیل مسیر پایه باید با نام Repository یکسان باشد.
+          NEXT_BASE_PATH: "/mahrukh-clinic"
         run: npm run build
 
       - name: Setup Pages
