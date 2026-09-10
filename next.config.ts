@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
     ? {
         output: "export" as const,
         basePath: repoBasePath || undefined,
-        assetPrefix: repoBasePath ? `${repoBasePath}/` : undefined,
         trailingSlash: true,
       }
     : {}),
