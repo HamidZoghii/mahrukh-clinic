@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #173f52;
+  --color-primary-deep: #0d2f40;
+  --color-warm: #f5f0ea;
+  --color-soft: #fbf9f6;
+  --color-accent: #c9a58b;
+  --color-ink: #17313d;
+  --color-muted: #70818a;
+
+  --font-sans: var(--font-vazirmatn), "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-en: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --container-page: 1240px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-soft);
+  color: var(--color-ink);
+  font-feature-settings: "ss01" on;
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* Focus states — دسترسی‌پذیری کیبورد */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* حرکت‌های ظریف — بدون انیمیشن سنگین */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-up {
+    animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
