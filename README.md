@@ -60,16 +60,3 @@ npm run start
 ```bash
 GITHUB_PAGES_EXPORT=true npm run build
 ```
-
-خروجی توی `out/` تولید می‌شه و مستقیم قابل انتشار روی GitHub Pagesه. این کار رو workflow توی `.github/workflows/deploy.yml` خودش با هر push به main انجام می‌ده.
-
-- اگه دامنه اختصاصی داری (مثلاً `mahrukhclinic.com`)، فایل `public/CNAME` رو با دامنه‌ت آپدیت کن، لازم نیست `NEXT_BASE_PATH` رو دست بزنی.
-- اگه سایت زیر مسیر `username.github.io/repo-name` منتشر می‌شه (بدون دامنه اختصاصی)، `NEXT_BASE_PATH` رو توی `.github/workflows/deploy.yml` برابر `/repo-name` بذار و `public/CNAME` رو حذف کن.
-
-## یه نکته درباره route سلامت
-
-مسیر `src/app/api/health/route.ts` فقط برای healthcheck همین محیط sandboxه، توی معماری واقعی (GitHub Pages) کاربردی نداره چون سایت کاملاً استاتیکه و بک‌اند یا دیتابیس واقعی نداره.
-
-## پشته فنی
-
-Next.js (App Router) + TypeScript، Tailwind CSS v4 (پیکربندی CSS-first توی `src/app/globals.css`)، فونت فارسی Vazirmatn و فونت لاتین Manrope از طریق `next/font/google`. برای اسلایدر قبل/بعد هم کتابخانه‌ای استفاده نکردم، خودم با React و Pointer Events پیاده‌سازیش کردم.
